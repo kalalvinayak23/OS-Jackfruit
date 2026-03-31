@@ -98,6 +98,8 @@ Demo Screenshots
 1.	Multi‑container supervision – show two or more containers running concurrently under one supervisor (e.g., alpha and beta). 
 
 
+   ![WhatsApp Image 2026-03-31 at 10 19 55 PM](https://github.com/user-attachments/assets/13a3afe7-59fd-41cc-8053-d210d01eb714)
+
                         Screenshot: screenshots/01_multi_container.png
 
 
@@ -106,6 +108,9 @@ Demo Screenshots
 
 2.	Metadata tracking – run engine ps and display the table of container IDs, PIDs, states, limits, and start times.   
 
+
+
+   ![WhatsApp Image 2026-03-31 at 10 19 55 PM](https://github.com/user-attachments/assets/e13b5e92-c892-45fc-a199-4f7d74e37f93)
 
                     Screenshot: screenshots/02_ps_output.png
 
@@ -119,6 +124,8 @@ Demo Screenshots
 
  
 
+![WhatsApp Image 2026-03-31 at 10 20 58 PM](https://github.com/user-attachments/assets/50a86bce-7a4e-4c4b-9229-215f94271d61)
+
                         Screenshot: screenshots/03_logging.png
 
 
@@ -129,6 +136,8 @@ Demo Screenshots
 
 4.	CLI and IPC – show a CLI command (such as engine stop beta) and the supervisor response (Sent stop signal to beta).   
 
+
+![WhatsApp Image 2026-03-31 at 10 27 59 PM](https://github.com/user-attachments/assets/81d465d7-6622-49a7-9c4e-8616ca1438c8)
 
  
 
@@ -143,6 +152,8 @@ Screenshot: screenshots/04_cli_ipc.png
 5.	Soft‑limit warning – capture dmesg output when a container first exceeds its soft limit.   
 
 
+![WhatsApp Image 2026-03-31 at 10 23 48 PM](https://github.com/user-attachments/assets/175997e0-bf04-4621-9912-c031e09cad75)
+
 Screenshot: screenshots/05_soft_limit.png
 
 
@@ -154,7 +165,8 @@ Screenshot: screenshots/05_soft_limit.png
 
 6.	Hard‑limit enforcement – capture dmesg output and ps showing a container being killed after crossing its hard limit.       
 
- 
+![WhatsApp Image 2026-03-31 at 10 23 22 PM](https://github.com/user-attachments/assets/9493a34b-de1c-42da-b3b4-36e4b8b43655)
+
 
 
 Screenshot: screenshots/06_hard_limit.png
@@ -173,6 +185,10 @@ Screenshot: screenshots/06_hard_limit.png
 
 
 
+![WhatsApp Image 2026-03-31 at 10 25 29 PM](https://github.com/user-attachments/assets/1c24ee7f-d658-489d-8d29-638970e51640)
+
+![WhatsApp Image 2026-03-31 at 10 25 49 PM](https://github.com/user-attachments/assets/e005d33e-d459-43aa-84e1-57d766ded3d8)
+
 
 
      Screenshot: screenshots/07_scheduling.png
@@ -180,6 +196,7 @@ Screenshot: screenshots/06_hard_limit.png
 8.	Clean teardown – show ps aux | grep defunct returning no zombies and lsmod | grep monitor returning nothing after unloading the module. 
 
  
+![WhatsApp Image 2026-04-01 at 12 41 40 AM](https://github.com/user-attachments/assets/ee8bddce-fb1a-4431-b90b-1f0ddb575ef4)
 
 
         Screenshot: screenshots/08_teardown.png
