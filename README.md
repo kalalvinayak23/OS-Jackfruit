@@ -10,11 +10,14 @@ Team Information
 
 Build, Load, and Run Instructions
 All commands below assume you are inside the boilerplate/ directory of your cloned repository. These instructions have been tested on a fresh Ubuntu 22.04/24.04 virtual machine with Secure Boot disabled.
-Prerequisites
+ 
+## Prerequisites
 1.	Ubuntu VM – Use a virtual machine running Ubuntu 22.04 or 24.04. Do not use WSL; the kernel module will not load there. Make sure Secure Boot is turned off so that out‑of‑tree kernel modules can be loaded.
+   
 2.	Packages – Install the C compiler and kernel headers:
  	sudo apt update
 sudo apt install -y build-essential linux-headers-$(uname -r)
+
 3.	Environment check – Run the provided preflight script to verify that your VM meets the project requirements:
  	chmod +x environment-check.sh
 sudo ./environment-check.sh
