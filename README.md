@@ -5,6 +5,7 @@
 This project implements a lightweight container runtime that can supervise multiple containers concurrently and enforce per‑container memory limits using a Linux kernel module. The runtime is written in C and runs on stock Ubuntu kernels (22.04/24.04) inside a virtual machine. It demonstrates process isolation via namespaces, safe producer/consumer logging with a bounded buffer, an IPC channel for control commands, kernel‑space memory monitoring, and basic scheduling experiments.
 
 Team Information
+
 •	Member 1 – SRN:  PES2UG25AM809
 
 •	Member 2 – SRN: 
