@@ -96,6 +96,7 @@ Open a second terminal in the same directory to act as the CLI client. Each comm
 •	List containers and inspect metadata:
   ```bash sudo ./engine ps```
  	The output contains one row per container with the fields: ID, host PID, state, soft limit (MiB), hard limit (MiB), and start time.
+  
 •	Read logs from a container:
  	```bash sudo ./engine logs alpha ```
    
