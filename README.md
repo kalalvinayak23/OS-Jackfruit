@@ -8,7 +8,7 @@ This project implements a lightweight container runtime that can supervise multi
 
 •	Member 1 – SRN:  PES2UG25AM809
 
-•	Member 2 – SRN: 
+•	Member 2 – SRN: PES2UG24AM085
 
 Build, Load, and Run Instructions
 All commands below assume you are inside the boilerplate/ directory of your cloned repository. These instructions have been tested on a fresh Ubuntu 22.04/24.04 virtual machine with Secure Boot disabled.
