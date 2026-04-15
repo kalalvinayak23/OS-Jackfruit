@@ -10,19 +10,25 @@ This project implements a lightweight container runtime that can supervise multi
 
 •	Member 2 – SRN: PES2UG24AM085
 
+
 Build, Load, and Run Instructions
-All commands below assume you are inside the boilerplate/ directory of your cloned repository. These instructions have been tested on a fresh Ubuntu 22.04/24.04 virtual machine with Secure Boot disabled.
+
+All commands below assume you are inside the boilerplate/ directory of your cloned repository. 
+
+These instructions have been tested on a fresh Ubuntu 22.04/24.04 virtual machine with Secure Boot disabled.
  
 ## Prerequisites
-1.	Ubuntu VM – Use a virtual machine running Ubuntu 22.04 or 24.04. Do not use WSL; the kernel module will not load there. Make sure Secure Boot is turned off so that out‑of‑tree kernel modules can be loaded.
+1.	Ubuntu VM – Use a virtual machine running Ubuntu 22.04 or 24.04.
+2.	Do not use WSL; the kernel module will not load there.
+3.Make sure Secure Boot is turned off so that out‑of‑tree kernel modules can be loaded.
    
-2.	Packages – Install the C compiler and kernel headers:
+5.	Packages – Install the C compiler and kernel headers:
  	```bash
      sudo apt update
      sudo apt install -y build-essential linux-headers-$(uname -r)
   	```
 
-3.	Environment check – Run the provided preflight script to verify that your VM meets the project requirements:
+6.	Environment check – Run the provided preflight script to verify that your VM meets the project requirements:
 
 ```bash
 chmod +x environment-check.sh
@@ -37,7 +43,9 @@ The user‑space only build used by CI can be invoked as:
 make ci
 ```
 ## Preparing the Root Filesystem
-Containers must run inside their own root filesystem to achieve proper isolation. We use Alpine’s minimal rootfs as a template. Choose the appropriate architecture (e.g., aarch64 for ARM‑based VMs or x86_64 for Intel/AMD VMs):
+Containers must run inside their own root filesystem to achieve proper isolation. 
+
+We use Alpine’s minimal rootfs as a template. Choose the appropriate architecture (e.g., aarch64 for ARM‑based VMs or x86_64 for Intel/AMD VMs):
 
 # Create a base rootfs directory
 ```bash
@@ -81,6 +89,7 @@ Leave this terminal running. The supervisor prints nothing by default but listen
 
 ## Starting and Managing Containers
 Open a second terminal in the same directory to act as the CLI client. Each command spawns a short‑lived process that connects to the supervisor over the UNIX domain socket, sends a request, prints the response, and exits.
+
 •	Start a container in the background (assigns default limits of 40 MiB soft / 64 MiB hard):
 
  	sudo ./engine start alpha ./rootfs-alpha "/bin/sh -c 'echo alpha alive; sleep 1000'" 
@@ -111,10 +120,16 @@ The memory_hog workload repeatedly allocates and touches memory to grow its RSS.
 
     sudo ./engine start mem3 ./rootfs-mem "/bin/sh -c '/memory_hog 4 500'" --soft-mib 16 --hard-mib 32
    
-Monitor the kernel logs with dmesg. When the process RSS crosses 16 MiB, the kernel module emits a soft‑limit warning. If it continues to 32 MiB, the module sends SIGKILL and the supervisor marks the container as killed.
+Monitor the kernel logs with dmesg. 
+
+When the process RSS crosses 16 MiB, the kernel module emits a soft‑limit warning.
+
+If it continues to 32 MiB, the module sends SIGKILL and the supervisor marks the container as killed.
 
 ## Running the Scheduling Experiments
-The cpu_hog and io_pulse programs stress different scheduler paths. Use them concurrently to observe how Linux schedules CPU‑bound versus I/O‑bound workloads:
+The cpu_hog and io_pulse programs stress different scheduler paths.
+
+Use them concurrently to observe how Linux schedules CPU‑bound versus I/O‑bound workloads:
 
 ```bash  
 sudo ./engine start cpu1 ./rootfs-cpu "/bin/sh -c '/cpu_hog 20'"
